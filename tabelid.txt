@@ -1,0 +1,39 @@
+CREATE TABLE v_house(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userid INT,
+	sisenes DATE,
+	lahkus DATE,
+	FOREIGN KEY(userid) REFERENCES v_users(id)
+);
+
+
+CREATE TABLE v_users(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	eesnimi VARCHAR(100)
+);
+
+INSERT INTO v_users (eesnimi) VALUES (?);
+
+
+CREATE TABLE v_tickets(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	hind DECIMAL (8, 2),
+	userid INT,
+	FOREIGN KEY(userid) REFERENCES v_users(id)
+);
+
+
+
+----------------
+
+CREATE TABLE v_house(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	firstname VARCHAR(100),
+	ticketsold DATETIME,
+	entered DATETIME,
+	departured DATETIME
+);
+
+
+SELECT COUNT(*) FROM v_house WHERE id = ? AND departured IS NULL;
+
